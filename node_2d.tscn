@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dgxfmvfs5s2vi"]
+
+[ext_resource type="Script" uid="uid://dlvd8ecg7yqre" path="res://character_body_2d.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://t34kcs32equp" path="res://spawner.gd" id="2_0e48y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ujql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ujql"]
+size = Vector2(297.125, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
+size = Vector2(12, 85)
+
+[node name="Node2D" type="Node2D" unique_id=1973085940]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=951815270]
+script = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=397631644]
+shape = SubResource("CircleShape2D_8ujql")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1173527315]
+
+[node name="CharacterBody2D2" type="StaticBody2D" parent="." unique_id=1042201131]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2" unique_id=612085295]
+position = Vector2(-1.5625, 27)
+shape = SubResource("RectangleShape2D_8ujql")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D2" unique_id=1187764557]
+position = Vector2(-149, -19.5)
+shape = SubResource("RectangleShape2D_wtcfe")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CharacterBody2D2" unique_id=1359122446]
+position = Vector2(146, -22)
+shape = SubResource("RectangleShape2D_wtcfe")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1488994331]
+position = Vector2(0, -217)
+script = ExtResource("2_0e48y")
+
+[node name="Timer" type="Timer" parent="Marker2D" unique_id=148202036]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="Marker2D/Timer" to="Marker2D" method="_on_timer_timeout"]

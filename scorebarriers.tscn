@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c2d38ebfklsxj"]
+
+[ext_resource type="Script" uid="uid://b2884r5j0650b" path="res://scorebarriers.gd" id="1_awqjs"]
+[ext_resource type="Texture2D" uid="uid://d05igqmke1hxq" path="res://icon.svg" id="1_xibr1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ujql"]
+size = Vector2(169, 20)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_8ujql"]
+points = PackedVector2Array(-10, 0, 9, 0, 0, 32)
+
+[node name="Node2D" type="Node2D" unique_id=1935071872]
+script = ExtResource("1_awqjs")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=404729695]
+position = Vector2(-85.5, -0.5)
+scale = Vector2(1.2890625, 0.1484375)
+texture = ExtResource("1_xibr1")
+
+[node name="Icon2" type="Sprite2D" parent="." unique_id=1333599614]
+position = Vector2(85, -0.5)
+scale = Vector2(1.2890625, 0.1484375)
+texture = ExtResource("1_xibr1")
+
+[node name="leftwall" type="Area2D" parent="." unique_id=622360968]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftwall" unique_id=1136127088]
+position = Vector2(-84.5, 0)
+shape = SubResource("RectangleShape2D_8ujql")
+
+[node name="rightwall" type="Area2D" parent="." unique_id=1430378408]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightwall" unique_id=1496932891]
+position = Vector2(85, 0)
+shape = SubResource("RectangleShape2D_8ujql")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=939267140]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=510796347]
+shape = SubResource("ConvexPolygonShape2D_8ujql")
