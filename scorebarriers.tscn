@@ -7,34 +7,55 @@
 size = Vector2(169, 20)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_8ujql"]
-points = PackedVector2Array(-10, 0, 9, 0, 0, 32)
+points = PackedVector2Array(-2, 8, 2, 8, 0, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72y5o"]
+size = Vector2(4, 18)
 
 [node name="Node2D" type="Node2D" unique_id=1935071872]
 script = ExtResource("1_awqjs")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=404729695]
+[node name="leftwall" type="Area2D" parent="." unique_id=622360968]
+
+[node name="Icon" type="Sprite2D" parent="leftwall" unique_id=404729695]
 position = Vector2(-85.5, -0.5)
 scale = Vector2(1.2890625, 0.1484375)
 texture = ExtResource("1_xibr1")
-
-[node name="Icon2" type="Sprite2D" parent="." unique_id=1333599614]
-position = Vector2(85, -0.5)
-scale = Vector2(1.2890625, 0.1484375)
-texture = ExtResource("1_xibr1")
-
-[node name="leftwall" type="Area2D" parent="." unique_id=622360968]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leftwall" unique_id=1136127088]
 position = Vector2(-84.5, 0)
 shape = SubResource("RectangleShape2D_8ujql")
 
+[node name="LeftLabel" type="Label" parent="leftwall" unique_id=470862662]
+offset_left = -109.0
+offset_top = -13.0
+offset_right = -54.0
+offset_bottom = 10.0
+text = "Barrier"
+
 [node name="rightwall" type="Area2D" parent="." unique_id=1430378408]
+
+[node name="Icon2" type="Sprite2D" parent="rightwall" unique_id=1333599614]
+position = Vector2(85, -0.5)
+scale = Vector2(1.2890625, 0.1484375)
+texture = ExtResource("1_xibr1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rightwall" unique_id=1496932891]
 position = Vector2(85, 0)
 shape = SubResource("RectangleShape2D_8ujql")
 
+[node name="RightLabel" type="Label" parent="rightwall" unique_id=297173797]
+offset_left = 59.0
+offset_top = -13.0
+offset_right = 114.0
+offset_bottom = 10.0
+text = "Barrier"
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=939267140]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=510796347]
 shape = SubResource("ConvexPolygonShape2D_8ujql")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1786040692]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_72y5o")

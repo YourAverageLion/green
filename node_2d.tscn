@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://dgxfmvfs5s2vi"]
 
-[ext_resource type="Script" uid="uid://dlvd8ecg7yqre" path="res://character_body_2d.gd" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://dlty0eo4hmj7x" path="res://player.tscn" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://t34kcs32equp" path="res://spawner.gd" id="2_0e48y"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_8ujql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ujql"]
 size = Vector2(297.125, 20)
@@ -13,13 +11,7 @@ size = Vector2(12, 85)
 
 [node name="Node2D" type="Node2D" unique_id=1973085940]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=951815270]
-script = ExtResource("1_wtcfe")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=397631644]
-shape = SubResource("CircleShape2D_8ujql")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1173527315]
+[node name="CharacterBody2D" parent="." unique_id=880826995 instance=ExtResource("1_0e48y")]
 
 [node name="CharacterBody2D2" type="StaticBody2D" parent="." unique_id=1042201131]
 
