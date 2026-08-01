@@ -1,39 +1,67 @@
 class_name Player
 extends CharacterBody2D
 
-var count:int = 0
-var prev_count: int = 0
+var count:int = 1
+var prev_count: int = 1
 var sprites = []
 @export var tex : Texture2D
+@onready var count_label : Label = $count_label
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 func respawn_sprites():
-	if prev_count > count:
-		var diff = prev_count-count
-		for i in range(diff):
-			var removed = sprites.pop_back()
-			removed.queue_free()
-		#for s in sprites:
-			#s.queue_free()
-		#sprites.clear()
-	else:
-		var diff = count-prev_count
-		
-		for i in range(diff):
-			var sprite = preload("res://player_sprite.tscn").instantiate()
-			sprites.append(sprite)
-			add_child(sprite)
-			#sprite.position = Vector2(randf_range(-5,5),randf_range(-5,5))
-	var total_sprites = count
-	for i in range(count):
-		sprites[i].t = (float(i) / float(total_sprites)) * 2.0 * PI
+	
+	if count < 0:
+		count = 0
+	var found_invalid = false
+	
+	if count < 100:
+		if prev_count > count:
+			var diff = prev_count-count
+			for i in range(diff):
+				var removed = sprites.pop_back()
+				if is_instance_valid(removed):
+					removed.queue_free()
+				else:
+					found_invalid = true
+			#for s in sprites:
+				#s.queue_free()
+			#sprites.clear()
+		else:
+			var diff = count-prev_count
+			
+			for i in range(diff):
+				var sprite = preload("res://player_sprite.tscn").instantiate()
+				sprites.append(sprite)
+				add_child(sprite)
+
+		var total_sprites = count
+		for i in range(count):
+			if i < sprites.size():
+				sprites[i].t = (float(i) / float(total_sprites)) * 2.0 * PI
+			else:
+				found_invalid = true
+	if (count < 100 and prev_count > 100) or found_invalid:
+		respawn_all_sprites()
+	
 	prev_count = count
-		
+	
+	count_label.text = str(count)
+
+func respawn_all_sprites():
+	for i in range(sprites.size()):
+		var sprite = sprites[i]
+		sprite.queue_free()
+	sprites.clear()
+	prev_count = 0
+	respawn_sprites()
 
 func _ready() -> void:
-	#respawn_sprites()
+	var sprite = preload("res://player_sprite.tscn").instantiate()
+	sprites.append(sprite)
+	add_child(sprite)
+	respawn_sprites()
 	pass
 
 func _physics_process(delta: float) -> void:

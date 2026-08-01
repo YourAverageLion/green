@@ -27,10 +27,13 @@ position = Vector2(-84.5, 0)
 shape = SubResource("RectangleShape2D_8ujql")
 
 [node name="LeftLabel" type="Label" parent="leftwall" unique_id=470862662]
-offset_left = -109.0
-offset_top = -13.0
-offset_right = -54.0
-offset_bottom = 10.0
+offset_left = -142.0
+offset_top = -29.0
+offset_right = -23.0
+offset_bottom = 20.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 35
 text = "Barrier"
 
 [node name="rightwall" type="Area2D" parent="." unique_id=1430378408]
@@ -45,10 +48,14 @@ position = Vector2(85, 0)
 shape = SubResource("RectangleShape2D_8ujql")
 
 [node name="RightLabel" type="Label" parent="rightwall" unique_id=297173797]
-offset_left = 59.0
-offset_top = -13.0
-offset_right = 114.0
-offset_bottom = 10.0
+offset_left = 31.0
+offset_top = -28.0
+offset_right = 150.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 35
 text = "Barrier"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=939267140]

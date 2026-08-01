@@ -28,11 +28,11 @@ position = Vector2(146, -22)
 shape = SubResource("RectangleShape2D_wtcfe")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1488994331]
-position = Vector2(0, -217)
+position = Vector2(0, -600)
 script = ExtResource("2_0e48y")
 
 [node name="Timer" type="Timer" parent="Marker2D" unique_id=148202036]
-wait_time = 4.0
+wait_time = 2.344
 autostart = true
 
 [connection signal="timeout" from="Marker2D/Timer" to="Marker2D" method="_on_timer_timeout"]
