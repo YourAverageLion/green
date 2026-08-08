@@ -32,7 +32,7 @@ position = Vector2(0, -600)
 script = ExtResource("2_0e48y")
 
 [node name="Timer" type="Timer" parent="Marker2D" unique_id=148202036]
-wait_time = 2.344
+wait_time = 2.547
 autostart = true
 
 [connection signal="timeout" from="Marker2D/Timer" to="Marker2D" method="_on_timer_timeout"]

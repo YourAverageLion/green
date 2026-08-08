@@ -3,6 +3,8 @@ extends Sprite2D
 @onready var player : Player = $"../"
 var t = 0
 var dist = 50
+var index = -1
+var count = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +15,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var center = player.global_position
-	global_position = Vector2(cos(t)*dist, sin(t)*dist) + center
+	global_position = Vector2(cos(t)*(dist), sin(t)*dist) + center
 	t+=delta
 	pass

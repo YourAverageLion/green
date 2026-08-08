@@ -39,6 +39,8 @@ func respawn_sprites():
 		var total_sprites = count
 		for i in range(count):
 			if i < sprites.size():
+				sprites[i].index = i
+				sprites[i].count = clamp(count,0,100)
 				sprites[i].t = (float(i) / float(total_sprites)) * 2.0 * PI
 			else:
 				found_invalid = true
